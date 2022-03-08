@@ -10,7 +10,7 @@
             </div>
         </div>
 
-      
+
         <li>
             <a asp-controller="Home" asp-action="Index" class=" wave-effect"><i class="fa fa-cubes mr-2"></i> ANASAYFA</a>
         </li>
@@ -22,9 +22,26 @@
                 <li>
                     <a asp-controller="Algoritma" asp-action="MetindeArama">Metinde Arama</a>
                 </li>
-              
+                <li>
+                    <a asp-controller="Ogrenci" asp-action="AddStudent">Öğrenci Ekle</a>
+                </li>
             </ul>
         </li>
-       
+
+        <li class="">
+            <a href="#ogrenci" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+                <i class="mdi mdi-file mr-2"></i> ÖĞRENCİ
+            </a>
+            <ul class="collapse list-unstyled" id="ogrenci" data-parent="#accordion">
+                <li>
+                    <a asp-controller="Students" asp-action="Index">Listele</a>
+                </li>
+                <li>
+                    <a asp-controller="Students" asp-action="Create">Ekle</a>
+                </li>
+                
+            </ul>
+        </li>
+
     </ul>
 </nav>
