@@ -16,46 +16,26 @@
 
     <!-- Title -->
     <title>adminor – Clean & Modern Responsive Bootstrap 4 admin dashboard HTML5 Template.</title>
-    <link rel="stylesheet" href="~/admintmp/assets\fonts\fonts\font-awesome.min.css">
 
-    <!-- Font family -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-
-    <!-- Sidemenu Css -->
-    <link href="~/admintmp/assets\plugins\fullside-menu\css\style.css" rel="stylesheet">
-    <link href="~/admintmp/assets\plugins\fullside-menu\waves.min.css" rel="stylesheet">
-
-
-
-
-    <!-- Dashboard Css -->
-    <link href="~/admintmp/assets\css\dashboard.css" rel="stylesheet">
-
-    <!-- c3.js Charts Plugin -->
-    <link href="~/admintmp/assets\plugins\charts-c3\c3-chart.css" rel="stylesheet">
-
-    <!-- Custom scroll bar css-->
-    <link href="~/admintmp/assets\plugins\scroll-bar\jquery.mCustomScrollbar.css" rel="stylesheet">
-
-    <!---Font icons-->
-    <link href="~/admintmp/assets\css\icons.css" rel="stylesheet">
+    <partial name="_Stiller" />
+   @await RenderSectionAsync("StilEkleme",required:false)
 
 </head>
 <body class="">
     <div id="global-loader"></div>
     <div class="page">
         <div class="page-main">
-   
+
             <partial name="_Header">
 
 
-            <div class="wrapper">
-                <!-- Sidebar Holder -->
-                <partial name="_SideMenu" />
-                <div class=" content-area">
-                    @RenderBody()
+                <div class="wrapper">
+                    <!-- Sidebar Holder -->
+                    <partial name="_SideMenu" />
+                    <div class=" content-area">
+                        @RenderBody()
+                    </div>
                 </div>
-            </div>
         </div>
 
         <!--footer-->
@@ -65,24 +45,8 @@
 
     <!-- BAck to top -->
     <a href="#top" id="back-to-top" style="display: inline;"><i class="fa fa-angle-up"></i></a>
+    <partial name="_Jsler" />
 
-    <!-- Dashboard js -->
-    <script src="~/admintmp/assets\js\vendors\jquery-3.2.1.min.js"></script>
-    <script src="~/admintmp/assets\js\vendors\bootstrap.bundle.min.js"></script>
-    <script src="~/admintmp/assets\js\vendors\jquery.sparkline.min.js"></script>
-    <script src="~/admintmp/assets\js\vendors\selectize.min.js"></script>
-    <script src="~/admintmp/assets\js\vendors\jquery.tablesorter.min.js"></script>
-    <script src="~/admintmp/assets\js\vendors\circle-progress.min.js"></script>
-    <script src="~/admintmp/assets\plugins\rating\jquery.rating-stars.js"></script>
-
-    <!-- Fullside-menu Js-->
-    <script src="~/admintmp/assets\plugins\fullside-menu\jquery.slimscroll.min.js"></script>
-    <script src="~/admintmp/assets\plugins\fullside-menu\waves.min.js"></script>
-
-    <!-- Custom scroll bar Js-->
-    <script src="~/admintmp/assets\plugins\scroll-bar\jquery.mCustomScrollbar.concat.min.js"></script>
-
-    <!-- Custom Js-->
-    <script src="~/admintmp/assets\js\custom.js"></script>
+    @await RenderSectionAsync("JsEkleme", required: false)
 </body>
 </html>
