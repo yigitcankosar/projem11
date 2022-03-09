@@ -54,8 +54,24 @@ namespace projem11.Controllers
 
         public IActionResult Ekle()
         {
-            ViewData["GenderID"] = new SelectList(_context.Genders, "GenderID", "GenderName");
+            ViewData["GenderList"] = new SelectList(_context.Genders, "GenderID", "GenderName");
             return View();
+        }
+        // POST: Students/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Ekle([Bind("StudentID,NameAndSecondName,SurName,Mobile,GenderID")] Student student)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(student);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["GenderList"] = new SelectList(_context.Genders, "GenderID", "GenderName", student.GenderID);
+            return View(student);
         }
 
         // POST: Students/Create
